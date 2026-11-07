@@ -1,0 +1,20 @@
+table DayType
+	lineageTag: 3472f2e9-d269-a2dd-6edd-5a2983675593
+
+	column day_type
+		dataType: string
+		lineageTag: 54fd1d22-b249-e61d-a6e0-71ce00100c83
+		summarizeBy: none
+		sourceColumn: day_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DayType = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromColumns({{"Weekday", "Weekend"}}, type table [day_type = text])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table

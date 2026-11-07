@@ -1,0 +1,185 @@
+table Sensors
+	lineageTag: af29aa17-8ae4-3211-319e-28f627e96590
+
+	/// The average people in an hour: the sum over the sensors in the filter, averaged over the hours in the filter (and over weekdays and weekends unless a day type is picked)
+	measure 'People an hour' = AVERAGEX ( VALUES ( Hours[hour] ), CALCULATE ( SUM ( Hours[people] ) ) )
+		formatString: #,0
+		lineageTag: a14c2fa8-718d-7607-c1bd-04b545425e32
+
+	/// Footpath width from the zone shape: (P - SQRT(P^2 - 16A)) / 4
+	measure 'Width m' = AVERAGE ( Sensors[width_m] )
+		formatString: 0.0
+		lineageTag: 4c3b3da5-327b-50f6-19d9-9c86c29899d8
+
+	/// People an hour on each metre of footpath width (averaged over the sensors in the filter)
+	measure 'People an hour per m' =
+			VAR t = SUMX ( VALUES ( Sensors[sensor_key] ), DIVIDE ( CALCULATE ( [People an hour] ), CALCULATE ( [Width m] ) ) )
+			RETURN DIVIDE ( t, DISTINCTCOUNT ( Sensors[sensor_key] ) )
+		formatString: #,0
+		lineageTag: 03b7d47c-7ac2-91dd-0005-1a77332d9ee0
+
+	/// Space each person has: walking speed (1.2 m/s) x 3600 / people an hour per metre of width
+	measure 'm2 each' = DIVIDE ( 1.2 * 3600, [People an hour per m] )
+		formatString: 0.0
+		lineageTag: 5e04e006-cee5-c36a-8b17-403432f53e3c
+
+	/// A car space (AS/NZS 2890.1, class 1A) is 2.4 x 5.4 m
+	measure 'Car spaces each' = DIVIDE ( [m2 each], 12.96 )
+		formatString: 0.00
+		lineageTag: 2bae85e2-cd3f-af58-a399-954d9f79129a
+
+	/// The average weekday: the 24 hourly averages added up
+	measure 'Weekday day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekday" )
+		formatString: #,0
+		displayFolder: Weekend
+		lineageTag: 5b0bf5a7-b85c-5f38-4d03-5b30a1ad23a6
+
+	measure 'Weekend day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekend" )
+		formatString: #,0
+		displayFolder: Weekend
+		lineageTag: 6cf44ec0-6254-c251-278a-15a5546cb5b1
+
+	/// Weekend day divided by weekday, as the formula column in Plotlay
+	measure 'Weekend vs weekday' = DIVIDE ( [Weekend day], [Weekday day] )
+		formatString: 0.00
+		displayFolder: Weekend
+		lineageTag: be4de268-bea6-5603-0cfa-086996ffda2b
+
+	/// People counted in a day (all hours reported or not)
+	measure 'People a day' = SUM ( Daily[people] )
+		formatString: #,0
+		displayFolder: Days
+		lineageTag: ae7b25de-e52a-47b3-a35f-2124c40434a6
+
+	measure 'Complete sensors' = CALCULATE ( DISTINCTCOUNT ( Daily[sensor_key] ), Daily[hours_reported] = 24 )
+		formatString: 0
+		displayFolder: Days
+		lineageTag: 12932e89-6963-3081-56c0-42d4c7e571ca
+
+	measure 'Sensor title' = SELECTEDVALUE ( Sensors[sensor_name], "Pick a sensor" )
+		lineageTag: 22bd9627-475b-edd5-081b-feec429323ec
+
+	column sensor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 374d2122-0db9-8d12-238d-38d4184741d6
+		summarizeBy: none
+		sourceColumn: sensor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_name
+		dataType: string
+		lineageTag: d4f51362-5454-4296-730e-9e0adfde6f9c
+		summarizeBy: none
+		sourceColumn: sensor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 7bac260f-e216-7b21-6d67-e86785803d59
+		summarizeBy: none
+		sourceColumn: latitude
+		dataCategory: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column longitude
+		dataType: double
+		lineageTag: 3126c4b2-537a-7a4e-9d29-fefaac0b4253
+		summarizeBy: none
+		sourceColumn: longitude
+		dataCategory: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_made_by
+		dataType: string
+		lineageTag: e185781d-8134-c3e6-1434-ca08801d70ae
+		summarizeBy: none
+		sourceColumn: zone_made_by
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone_check
+		dataType: string
+		lineageTag: 89f897d9-2df1-f8d8-1ffe-eaa6a4a9f02c
+		summarizeBy: none
+		sourceColumn: zone_check
+
+		annotation SummarizationSetBy = Automatic
+
+	column compare
+		dataType: boolean
+		lineageTag: 328c1091-af94-564d-2636-44536600cdd8
+		summarizeBy: none
+		sourceColumn: compare
+
+		annotation SummarizationSetBy = Automatic
+
+	column note
+		dataType: string
+		lineageTag: cd635706-4812-079e-0f5a-20d00764ff48
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = Automatic
+
+	column area_m2
+		dataType: double
+		formatString: #,0
+		lineageTag: 2e656559-ab16-e2aa-a525-03e76e8b9c0b
+		summarizeBy: none
+		sourceColumn: area_m2
+
+		annotation SummarizationSetBy = Automatic
+
+	column perimeter_m
+		dataType: double
+		formatString: #,0.0
+		lineageTag: ddd5bc2c-d73a-21bf-e303-8551ccab652f
+		summarizeBy: none
+		sourceColumn: perimeter_m
+
+		annotation SummarizationSetBy = Automatic
+
+	column width_m
+		dataType: double
+		formatString: 0.0
+		lineageTag: 6245098a-1c4a-6cc6-e749-720bb1a6143b
+		summarizeBy: none
+		sourceColumn: width_m
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekend_vs_weekday
+		dataType: double
+		formatString: 0.00
+		lineageTag: f0cded2a-1662-bbb8-0f26-f03242eea797
+		summarizeBy: none
+		sourceColumn: weekend_vs_weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column m2_each_at_peak
+		dataType: double
+		formatString: 0.0
+		lineageTag: 0e62fbbd-69e9-a241-e53b-74c5451f8d4b
+		summarizeBy: none
+		sourceColumn: m2_each_at_peak
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sensors = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(GetFile("counts/sensors.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Kept = Table.SelectColumns(Promoted, {"sensor_key", "sensor_name", "latitude", "longitude", "zone_made_by", "zone_check", "compare", "note", "area_m2", "perimeter_m", "width_m", "weekend_vs_weekday", "m2_each_at_peak"}),
+				    Typed = Table.TransformColumnTypes(Kept, {{"sensor_key", Int64.Type}, {"sensor_name", type text}, {"latitude", type number}, {"longitude", type number}, {"zone_made_by", type text}, {"zone_check", type text}, {"compare", type logical}, {"note", type text}, {"area_m2", type number}, {"perimeter_m", type number}, {"width_m", type number}, {"weekend_vs_weekday", type number}, {"m2_each_at_peak", type number}}, "en-AU")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

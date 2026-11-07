@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "821e3c5eeb862343052c",
+  "displayName": "Play the day",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920
+}

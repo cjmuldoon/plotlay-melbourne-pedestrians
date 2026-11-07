@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "558968061637121f063b",
+  "position": {
+    "x": 40,
+    "y": 730,
+    "z": 1,
+    "height": 280,
+    "width": 1840,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "sensor_name"
+                }
+              },
+              "queryRef": "Sensors.sensor_name",
+              "nativeQueryRef": "sensor_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "width_m"
+                }
+              },
+              "queryRef": "Sensors.width_m",
+              "nativeQueryRef": "width_m"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "weekend_vs_weekday"
+                }
+              },
+              "queryRef": "Sensors.weekend_vs_weekday",
+              "nativeQueryRef": "weekend_vs_weekday"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "m2_each_at_peak"
+                }
+              },
+              "queryRef": "Sensors.m2_each_at_peak",
+              "nativeQueryRef": "m2_each_at_peak"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "zone_check"
+                }
+              },
+              "queryRef": "Sensors.zone_check",
+              "nativeQueryRef": "zone_check"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "note"
+                }
+              },
+              "queryRef": "Sensors.note",
+              "nativeQueryRef": "note"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sensors and their zones'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

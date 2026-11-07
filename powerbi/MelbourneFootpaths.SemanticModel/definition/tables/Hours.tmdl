@@ -1,0 +1,56 @@
+table Hours
+	lineageTag: 6a7e7316-1603-d87b-26a8-eac49dab0a9c
+
+	column sensor_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 73baa243-a949-1cd2-5def-ddce4e810320
+		summarizeBy: none
+		sourceColumn: sensor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column hour
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: b7260297-e2a3-03a0-ade7-a134d7ba95cf
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_type
+		dataType: string
+		isHidden
+		lineageTag: a4b0ad67-1acc-f5a6-3cc1-cdf7f5ea503e
+		summarizeBy: none
+		sourceColumn: day_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column people
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 29d0575a-49d6-2d09-72d4-be8fed2c5767
+		summarizeBy: none
+		sourceColumn: people
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Hours = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(GetFile("counts/hour_of_day.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Kept = Table.SelectColumns(Promoted, {"sensor_key", "hour", "weekday_people", "weekend_people"}),
+				    Typed = Table.TransformColumnTypes(Kept, {{"sensor_key", Int64.Type}, {"hour", Int64.Type}, {"weekday_people", type number}, {"weekend_people", type number}}, "en-AU"),
+				    Long = Table.UnpivotOtherColumns(Typed, {"sensor_key", "hour"}, "day_type", "people"),
+				    Named = Table.TransformColumns(Long, {{"day_type", each if _ = "weekday_people" then "Weekday" else "Weekend", type text}}),
+				    Out = Table.TransformColumnTypes(Named, {{"people", type number}})
+				in
+				    Out
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,58 @@
+sensor_key,sensor_name,latitude,longitude,zone_made_by,council_feature_id,zone_check,compare,note,area_m2,perimeter_m,width_m,weekday_day,weekend_day,weekend_vs_weekday,m2_each_at_peak
+2,Bourke Street Mall (South),-37.81380668,144.96516718,Picked from City of Melbourne footpaths,3944,ok,True,,2242.17,428.61,11.03,15942.0,18194.0,1.14,24.8
+3,Melbourne Central,-37.81101524,144.96429485,Picked from City of Melbourne footpaths,5317,ok,True,,827.69,216.7,8.27,28006.0,32517.0,1.16,13.6
+4,Town Hall (West),-37.81487988,144.9660878,Picked from City of Melbourne footpaths,3694,ok,True,,838.0,222.26,8.14,36087.0,41802.0,1.16,10.4
+5,Princes Bridge,-37.81874249,144.96787656,Strip along the council footpath,5394,adjusted,True,"Princes Bridge: the council cuts this footpath into a 127 m² piece at the north abutment, where the sensor stands, and the bridge span. One strip along both, at the span polygon’s width.",618.55,257.42,5.0,24149.0,31961.0,1.32,9.3
+6,Flinders Underpass - Myki Barriers,-37.81907439,144.96557866,,,no zone,False,"In the Flinders Walk underpass beside the railway, shared with sensor 209: not a council footpath.",,,,,,,
+9,Southern Cross Station,-37.81982992,144.95102555,Picked from City of Melbourne footpaths,4170,ok,True,,470.97,222.91,4.4,16313.0,2610.0,0.16,7.3
+17,Collins Place (South),-37.81362543,144.97323591,Picked from City of Melbourne footpaths,5513,ok,True,,1080.75,413.95,5.36,11787.0,4499.0,0.38,16.0
+19,Chinatown-Swanston St (North),-37.81237202,144.96550671,Picked from City of Melbourne footpaths,7489,ok,True,,79.66,58.59,3.03,11943.0,15538.0,1.3,11.1
+20,Chinatown-Lt Bourke St (South),-37.81172914,144.9682466,Picked from City of Melbourne footpaths,10512,ok,True,,72.92,79.88,1.92,7396.0,11518.0,1.56,10.3
+21,155-161 Russell Street,-37.81267313,144.96788288,Picked from City of Melbourne footpaths,3234,ok,True,,150.1,61.72,6.05,10078.0,12440.0,1.23,24.7
+23,Spencer St-Collins St (South),-37.81909256,144.95452748,Picked from City of Melbourne footpaths,9086,ok,True,,964.99,409.16,4.83,9798.0,5265.0,0.54,19.4
+24,Spencer St-Collins St (North),-37.81887963,144.95449198,Picked from City of Melbourne footpaths,10585,ok,True,,1052.54,408.55,5.29,24463.0,16369.0,0.67,8.1
+25,Melbourne Convention Exhibition Centre,-37.82401776,144.95604426,,,no zone,False,"Inside the Convention Centre forecourt, 38 m from the nearest council footpath: no footpath polygon to measure.",,,,,,,
+27,QV Market-Peel St,-37.80606888,144.95644692,Picked from City of Melbourne footpaths,10069,ok,True,,281.05,158.2,3.73,3019.0,4513.0,1.49,56.4
+29,St Kilda Rd-Alexandra Gardens,-37.8199817,144.96872865,Picked from City of Melbourne footpaths,3004,ok,True,,1684.88,864.84,3.93,7643.0,10973.0,1.44,24.9
+30,Lonsdale St (South),-37.8112185,144.96656806,Picked from City of Melbourne footpaths,5383,adjusted,True,The nearest polygon is a 25 m² laneway corner; the Lonsdale St south footpath beside it is used.,423.5,201.78,4.39,9599.0,13280.0,1.38,22.9
+31,Lygon St (West),-37.80169681,144.96658911,Picked from City of Melbourne footpaths,5932,ok,True,,730.83,270.68,5.63,4382.0,6933.0,1.58,55.5
+35,Southbank Promenade,-37.82018685,144.96508508,Picked from City of Melbourne footpaths,3587,can’t verify,False,"At the south landing of the Evan Walker footbridge: the polygon is the landing, and whether the sensor counts the bridge or the promenade is not stated.",130.83,47.77,8.51,29080.0,32526.0,1.12,11.8
+36,Queen St (West),-37.81652527,144.96121062,Picked from City of Melbourne footpaths,4078,ok,True,,400.89,209.09,3.99,5858.0,4476.0,0.76,25.5
+41,Flinders La-Swanston St (West),-37.81668634,144.96689733,Picked from City of Melbourne footpaths,6702,ok,True,,859.34,221.55,8.39,36291.0,39348.0,1.08,10.9
+45,Little Collins St-Swanston St (East),-37.81414075,144.96609379,Picked from City of Melbourne footpaths,6595,ok,True,,928.99,237.74,8.41,19545.0,23033.0,1.18,19.4
+47,Melbourne Central-Elizabeth St (East),-37.81258467,144.9625775,Picked from City of Melbourne footpaths,11355,ok,True,,504.84,209.91,5.05,20165.0,23028.0,1.14,10.5
+49,QVM-Therry St (South),-37.80730068,144.95956055,Picked from City of Melbourne footpaths,11135,ok,True,,292.95,106.58,6.22,8133.0,10702.0,1.32,33.5
+51,QVM-Franklin St (North),-37.80841815,144.95906316,Picked from City of Melbourne footpaths,5288,ok,True,,112.82,77.9,3.15,2576.0,3014.0,1.17,65.8
+52,Elizabeth St-Lonsdale St (South),-37.81252157,144.9619401,Picked from City of Melbourne footpaths,5372,ok,True,,277.29,167.55,3.45,8834.0,9557.0,1.08,16.2
+53,Collins Street (North),-37.81564191,144.965499,Picked from City of Melbourne footpaths,10949,ok,True,,1079.25,418.24,5.29,15446.0,13736.0,0.89,13.5
+54,Lincoln-Swanston (West),-37.804024,144.96308399,,,no zone,False,"Its position falls inside a city block in Carlton, 8.6 m from a laneway footpath; the footpath it counts cannot be told from the open data.",,,,,,,
+56,Lonsdale St - Elizabeth St (North),-37.81234775,144.96153311,Picked from City of Melbourne footpaths,493,ok,True,,321.17,188.77,3.54,10682.0,12083.0,1.13,15.9
+58,Bourke St - Spencer St (North),-37.81686075,144.95358075,Picked from City of Melbourne footpaths,9637,ok,True,,606.48,355.9,3.48,16358.0,13514.0,0.83,8.6
+59,Building 80 RMIT,-37.80825648,144.96304859,Picked from City of Melbourne footpaths,8723,ok,True,,827.11,233.12,7.59,23884.0,13368.0,0.56,13.9
+61,RMIT Building 14,-37.80767455,144.96309114,Picked from City of Melbourne footpaths,10120,ok,True,,607.75,258.67,4.88,12810.0,8591.0,0.67,17.7
+62,La Trobe St (North),-37.80996494,144.96216521,Picked from City of Melbourne footpaths,9685,ok,True,,275.43,173.18,3.31,6976.0,7422.0,1.06,22.0
+63,231 Bourke St,-37.81333081,144.96675571,Picked from City of Melbourne footpaths,7159,ok,True,,303.54,88.62,8.47,11634.0,12984.0,1.12,29.8
+66,"QV2 Apartments, 300 Swanston Street",-37.81057846,144.96444294,Picked from City of Melbourne footpaths,1320,ok,True,,853.33,219.51,8.42,29493.0,31741.0,1.08,12.0
+67,Flinders Ln -Degraves St (South),-37.81688755,144.96562569,Picked from City of Melbourne footpaths,6779,ok,True,,146.36,109.49,2.82,12997.0,11390.0,0.88,9.8
+72,Flinders St- ACMI,-37.81726338,144.96872809,Picked from City of Melbourne footpaths,6780,ok,True,,457.89,335.42,2.78,7002.0,7001.0,1.0,13.9
+77,Harbour Esplanade (West) - Pedestrian path,-37.81441438,144.94433026,Picked from City of Melbourne footpaths,11887,ok,True,,845.52,202.96,9.16,4715.0,5952.0,1.26,88.4
+79,Flinders St (South),-37.81794046,144.96616678,Picked from City of Melbourne footpaths,1179,ok,True,,675.09,394.81,3.48,11698.0,13583.0,1.16,13.3
+84,Elizabeth St - Flinders St (East) - New footpath,-37.81798049,144.96503383,Picked from City of Melbourne footpaths,5616,ok,True,,581.5,212.38,5.79,27576.0,26720.0,0.97,8.8
+107,Royal Mint 280 William St,-37.81246271,144.95690188,Picked from City of Melbourne footpaths,6438,ok,True,,280.09,217.65,2.64,4024.0,3036.0,0.75,26.9
+109,La Trobe St- William St (South),-37.81193681,144.95621105,Picked from City of Melbourne footpaths,10193,ok,True,,435.6,246.32,3.64,5001.0,2646.0,0.53,27.8
+117,114 Flinders Street Car Park Footpath,-37.81629332,144.97090877,Picked from City of Melbourne footpaths,3491,ok,True,,240.51,151.05,3.33,5361.0,5004.0,0.93,23.3
+131,I-Hub Corner of King Street and Flinders Street (2-6 King),-37.82009057,144.95758725,Picked from City of Melbourne footpaths,1499,ok,True,,304.63,179.05,3.54,3567.0,4257.0,1.19,45.8
+132,I-Hub Corner of King Street and Latrobe Street (317-335 King),-37.81267639,144.95386444,Picked from City of Melbourne footpaths,10983,ok,True,,157.77,100.78,3.35,4493.0,4327.0,0.96,38.9
+133,I-Hub Southern Cross Station - Lonsdale Street Entrance - South,-37.81531435,144.95227769,Picked from City of Melbourne footpaths,8598,ok,True,,265.11,201.55,2.7,16029.0,14155.0,0.88,9.2
+134,I-Hub Southern Cross Station - Bourke Street Entrance - North,-37.81694221,144.95303935,Picked from City of Melbourne footpaths,2040,ok,True,,298.72,207.62,2.96,11795.0,11125.0,0.94,12.5
+135,I-Hub Southern Cross Station - Bourke Street Entrance - South,-37.8172861,144.95319102,Picked from City of Melbourne footpaths,8514,ok,True,,206.2,191.66,2.2,11225.0,11291.0,1.01,9.1
+141,Awning of Nationwide Parking 474 Flinders Street,-37.81997273,144.95834911,Picked from City of Melbourne footpaths,6709,ok,True,,289.13,202.15,2.95,4619.0,5432.0,1.18,33.1
+143,"Mounted on Toilet - Spencer Street, Batman Park",-37.821728,144.95557015,Picked from City of Melbourne footpaths,2258,can’t verify,False,On an L-shaped corner piece of the Spencer St footpath at Batman Park: its width cannot be worked out from its area and edge.,71.09,50.02,3.27,7435.0,10369.0,1.39,20.3
+162,iHub 489 Elizabeth Street,-37.80740397,144.95987909,Picked from City of Melbourne footpaths,8971,ok,True,,300.4,121.42,5.43,11351.0,15131.0,1.33,19.4
+179,61-67 Power Street Southbank,-37.82392385,144.96299677,Picked from City of Melbourne footpaths,6065,ok,True,,96.62,97.7,2.07,1797.0,1828.0,1.02,59.2
+181,368 Elizabeth Street,-37.81009465,144.96143149,Picked from City of Melbourne footpaths,11023,ok,True,,239.59,109.65,4.79,23243.0,25159.0,1.08,9.8
+182,163 King Street,-37.81627451,144.95550503,Picked from City of Melbourne footpaths,3388,ok,True,,327.67,204.4,3.31,7390.0,7848.0,1.06,22.0
+184,124 Elizabeth Street,-37.81512416,144.96371988,Picked from City of Melbourne footpaths,713,ok,True,,489.52,225.75,4.52,21803.0,22858.0,1.05,8.1
+185,197 Elizabeth Street,-37.81374643,144.96276183,Picked from City of Melbourne footpaths,11356,ok,True,,548.08,213.65,5.4,18569.0,18501.0,1.0,13.0
+187,RMIT Building 22 - 330 Swanston Street,-37.80942561,144.96395473,Picked from City of Melbourne footpaths,10198,ok,True,,349.39,218.56,3.3,7210.0,4382.0,0.61,20.3
+209,Flinders Underpass - Walkway,-37.81909037,144.96549709,,,no zone,False,"In the Flinders Walk underpass beside the railway, shared with sensor 6: not a council footpath.",,,,,,,

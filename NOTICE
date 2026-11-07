@@ -1,0 +1,41 @@
+How much footpath does each person get? Melbourne's pedestrian counts on the footpaths they come from.
+Copyright 2026 Craig Muldoon. Made with Plotlay (https://www.getplotlay.com).
+
+This repository contains code, data we made, and data from the sources below.
+
+CODE
+  The notebook and the Power BI project (its Power Query, DAX and report files) are licensed under the MIT licence
+  (LICENSE).
+
+DATA WE MADE
+  The footpath zones in data/geometry/, the tables in data/counts/ and the zone checks are licensed under Creative
+  Commons Attribution 4.0 International (LICENSE-DATA). Please credit: "Footpath zones and tables: Plotlay
+  (getplotlay.com), from City of Melbourne open data". They are made from the sources below, whose credits also apply.
+
+UPSTREAM SOURCES
+
+  City of Melbourne Open Data, data.melbourne.vic.gov.au. Licensed under Creative Commons Attribution 4.0
+  International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+    - Pedestrian Counting System (counts per hour)
+      https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-monthly-counts-per-hour/
+    - Pedestrian Counting System - Sensor Locations
+      https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/
+    - Footpaths
+      https://data.melbourne.vic.gov.au/explore/dataset/footpaths/
+    - 2023 Building Footprints and Road corridors (drawn as the base of the maps in visuals/)
+      https://data.melbourne.vic.gov.au/explore/dataset/2023-building-footprints/
+      https://data.melbourne.vic.gov.au/explore/dataset/road-corridors/
+    Changes: hourly counts averaged by hour of the day for weekdays and weekends (1 November 2025 to 31 October 2026)
+    and added up by day; 57 sensors with at least 300 complete days kept; 52 footpath outlines picked as the zones of
+    the sensors standing on them, and one strip drawn along a council footpath at its width (Princes Bridge).
+
+  Base map in the Plotlay project and the app screenshots
+    © Commonwealth of Australia (Geoscience Australia), licensed under CC BY 4.0.
+
+NOT INCLUDED
+  Nothing in this repository is derived from OpenStreetMap. No imagery was traced, and no Google, Nearmap, Esri or
+  Mapbox imagery was used. Nothing here implies endorsement by the City of Melbourne.
+
+THIRD-PARTY SOFTWARE
+  The notebook uses pandas, GeoPandas, Shapely, pyproj and Matplotlib (installed from requirements.txt, each under its
+  own licence). Fonts in the visuals: IBM Plex Sans and IBM Plex Mono, SIL Open Font License 1.1.

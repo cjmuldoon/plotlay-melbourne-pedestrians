@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "ee7fda6b2bf02fa8ca45",
+  "position": {
+    "x": 1260,
+    "y": 270,
+    "z": 1,
+    "height": 340,
+    "width": 620,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HourOfDay"
+                    }
+                  },
+                  "Property": "clock"
+                }
+              },
+              "queryRef": "HourOfDay.clock",
+              "nativeQueryRef": "clock"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "People an hour"
+                }
+              },
+              "queryRef": "Sensors.People an hour",
+              "nativeQueryRef": "People an hour"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DayType"
+                    }
+                  },
+                  "Property": "day_type"
+                }
+              },
+              "queryRef": "DayType.day_type",
+              "nativeQueryRef": "day_type"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'All sensors by hour'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

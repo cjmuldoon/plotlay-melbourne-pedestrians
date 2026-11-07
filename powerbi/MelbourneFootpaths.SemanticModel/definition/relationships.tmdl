@@ -1,0 +1,15 @@
+relationship 8d291868-3822-141f-f5d0-425158e77f5a
+	fromColumn: Hours.sensor_key
+	toColumn: Sensors.sensor_key
+
+relationship 97ecf209-e59a-ecfd-adbf-8c55ebb9abb4
+	fromColumn: Daily.sensor_key
+	toColumn: Sensors.sensor_key
+
+relationship a6ee79ae-d7f9-59e6-f2f2-fcdc7a1ccccf
+	fromColumn: Hours.hour
+	toColumn: HourOfDay.hour
+
+relationship 3308ddd8-7ff5-a9ae-78b0-80651ccccde1
+	fromColumn: Hours.day_type
+	toColumn: DayType.day_type

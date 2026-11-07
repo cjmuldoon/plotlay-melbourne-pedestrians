@@ -1,0 +1,31 @@
+table HourOfDay
+	lineageTag: 678274db-087e-9619-739a-899b5ee1e31e
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: a38a579e-11e8-3084-4670-82d5b69433db
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column clock
+		dataType: string
+		lineageTag: bd2878d4-fb63-90e7-b149-b0ae86c7e4fe
+		summarizeBy: none
+		sourceColumn: clock
+		sortByColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	partition HourOfDay = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromColumns({List.Numbers(0, 24)}, type table [hour = Int64.Type]),
+				    Clock = Table.AddColumn(Source, "clock", each Text.PadStart(Text.From([hour]), 2, "0") & ":00", type text)
+				in
+				    Clock
+
+	annotation PBI_ResultType = Table
