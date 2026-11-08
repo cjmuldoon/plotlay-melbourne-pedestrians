@@ -32,6 +32,15 @@ UPSTREAM SOURCES
   Base map in the Plotlay project and the app screenshots
     © Commonwealth of Australia (Geoscience Australia), licensed under CC BY 4.0.
 
+POWER BI MAP CONTEXT
+  The Shape Map in powerbi/ draws context round the footpath zones, generalised and cut to the map frame:
+  - suburbs and localities with the water mesh blocks cut out: Australian Bureau of Statistics, Australian Statistical
+    Geography Standard (ASGS) Edition 3, Suburbs and Localities 2021 and Mesh Blocks 2021, CC BY 4.0;
+  - the Yarra and other water areas cut out of the land: Vicmap Hydro, Water Area (HY_WATER_AREA_POLYGON), State of
+    Victoria (Department of Transport and Planning), CC BY 4.0;
+  - street outlines: City of Melbourne Open Data, Road corridors, CC BY 4.0.
+  Water is not a layer: it is the map background showing where no land is drawn.
+
 NOT INCLUDED
   Nothing in this repository is derived from OpenStreetMap. No imagery was traced, and no Google, Nearmap, Esri or
   Mapbox imagery was used. Nothing here implies endorsement by the City of Melbourne.

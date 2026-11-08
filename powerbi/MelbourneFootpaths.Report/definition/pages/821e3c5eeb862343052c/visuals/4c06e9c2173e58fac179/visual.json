@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Pedestrian counts, sensor locations and footpaths: City of Melbourne Open Data, CC BY 4.0 (1 Nov 2025 to 31 Oct 2026). Footpath zones made in Plotlay (getplotlay.com) from the council footpaths. Space each is an estimate: walking at 1.2 m/s, averaged over the hour, the whole footpath width.",
+                    "value": "Pedestrian counts, sensor locations and footpaths: City of Melbourne Open Data, CC BY 4.0 (1 Nov 2025 to 31 Oct 2026). Footpath zones made in Plotlay (getplotlay.com) from the council footpaths. Space each is an estimate: walking at 1.2 m/s, averaged over the hour, the whole footpath width. Map context: ABS ASGS 2021 suburbs (CC BY 4.0), Vicmap Hydro (CC BY 4.0), City of Melbourne road corridors (CC BY 4.0).",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#5b6573"
