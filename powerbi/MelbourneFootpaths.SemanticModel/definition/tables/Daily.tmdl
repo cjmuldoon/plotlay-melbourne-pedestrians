@@ -3,8 +3,8 @@ table Daily
 
 	column sensor_key
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
 		lineageTag: aa5688ce-235c-a636-f922-97c67f99885a
 		summarizeBy: none
 		sourceColumn: sensor_key
@@ -19,6 +19,8 @@ table Daily
 		sourceColumn: date
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column people
 		dataType: int64
@@ -50,3 +52,4 @@ table Daily
 				    Typed
 
 	annotation PBI_ResultType = Table
+

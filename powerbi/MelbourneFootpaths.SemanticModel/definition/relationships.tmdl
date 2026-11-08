@@ -13,3 +13,4 @@ relationship a6ee79ae-d7f9-59e6-f2f2-fcdc7a1ccccf
 relationship 3308ddd8-7ff5-a9ae-78b0-80651ccccde1
 	fromColumn: Hours.day_type
 	toColumn: DayType.day_type
+

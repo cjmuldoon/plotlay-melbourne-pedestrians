@@ -114,18 +114,18 @@ table Sensors
 	column latitude
 		dataType: double
 		lineageTag: 7bac260f-e216-7b21-6d67-e86785803d59
+		dataCategory: Latitude
 		summarizeBy: none
 		sourceColumn: latitude
-		dataCategory: Latitude
 
 		annotation SummarizationSetBy = Automatic
 
 	column longitude
 		dataType: double
 		lineageTag: 3126c4b2-537a-7a4e-9d29-fefaac0b4253
+		dataCategory: Longitude
 		summarizeBy: none
 		sourceColumn: longitude
-		dataCategory: Longitude
 
 		annotation SummarizationSetBy = Automatic
 
@@ -237,3 +237,4 @@ table Sensors
 				    Short_sensor_name_short
 
 	annotation PBI_ResultType = Table
+

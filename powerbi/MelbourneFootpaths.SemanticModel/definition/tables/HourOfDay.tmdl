@@ -29,3 +29,4 @@ table HourOfDay
 				    Clock
 
 	annotation PBI_ResultType = Table
+

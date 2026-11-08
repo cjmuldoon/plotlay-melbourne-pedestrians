@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "MelbourneFootpaths"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "92223eaf-134c-47d3-a74d-3e2b3c2e0af6"
+  }
+}

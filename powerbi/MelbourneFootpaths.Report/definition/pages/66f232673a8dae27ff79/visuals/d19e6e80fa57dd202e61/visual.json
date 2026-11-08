@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "d19e6e80fa57dd202e61",
   "position": {
-    "x": 40,
-    "y": 18,
+    "x": 40.693382778093977,
+    "y": 4.4111917070699169,
     "z": 0,
     "height": 91,
-    "width": 1160,
-    "tabOrder": 0
+    "width": 1160
   },
   "visual": {
     "visualType": "textbox",
@@ -21,10 +20,10 @@
                   {
                     "value": "WHERE THE SENSORS ARE",
                     "textStyle": {
-                      "fontSize": "24pt",
-                      "color": "#163c6e",
+                      "fontWeight": "bold",
                       "fontFamily": "Segoe UI Semibold",
-                      "fontWeight": "bold"
+                      "fontSize": "24pt",
+                      "color": "#163c6e"
                     }
                   }
                 ]
@@ -34,9 +33,9 @@
                   {
                     "value": "Azure Maps: add the reference layer data/geometry/footpath_zones.geojson (Format visual, Reference layer) for the footpath outlines; it joins on the sensor code.",
                     "textStyle": {
+                      "fontFamily": "Segoe UI",
                       "fontSize": "11pt",
-                      "color": "#5b6573",
-                      "fontFamily": "Segoe UI"
+                      "color": "#5b6573"
                     }
                   }
                 ]

@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "991e43ec45d1cd20e8ad",
   "position": {
-    "x": 40,
-    "y": 18,
+    "x": 39.935093258909255,
+    "y": 8.6124505155408571,
     "z": 0,
-    "height": 91,
-    "width": 1160,
-    "tabOrder": 0
+    "height": 90.533807829181484,
+    "width": 1161.5658362989323
   },
   "visual": {
     "visualType": "textbox",
@@ -21,10 +20,10 @@
                   {
                     "value": "MELBOURNE’S FOOTPATHS THROUGH A DAY",
                     "textStyle": {
-                      "fontSize": "24pt",
-                      "color": "#163c6e",
+                      "fontWeight": "bold",
                       "fontFamily": "Segoe UI Semibold",
-                      "fontWeight": "bold"
+                      "fontSize": "24pt",
+                      "color": "#163c6e"
                     }
                   }
                 ]
@@ -34,9 +33,9 @@
                   {
                     "value": "People an hour on each metre of footpath width, from the zones made in Plotlay. Pick an hour and a day type (5 pm on a weekday to start).",
                     "textStyle": {
+                      "fontFamily": "Segoe UI",
                       "fontSize": "11pt",
-                      "color": "#5b6573",
-                      "fontFamily": "Segoe UI"
+                      "color": "#5b6573"
                     }
                   }
                 ]

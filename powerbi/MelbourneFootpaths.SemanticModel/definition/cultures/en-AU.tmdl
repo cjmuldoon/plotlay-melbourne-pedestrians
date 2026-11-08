@@ -1,1 +1,410 @@
 cultureInfo en-AU
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "daytype.day_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DayType",
+			          "ConceptualProperty": "day_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "hourofday.clock": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HourOfDay",
+			          "ConceptualProperty": "clock"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hour": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.people_an_hour": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "People an hour"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People an hour": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.sensor_name_short": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "sensor_name_short"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Footpath (sensor)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.people_an_hour_per_m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "People an hour per m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People an hour per m of width": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.median_m2_each": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "Median m2 each"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Median m² each": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.median_m2_each_at_peak": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "Median m2 each at peak"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Median m² each, busiest hour": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.map_key": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "map_key"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sensor": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.m2_each": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "m2 each"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m² each": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.sensor_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "sensor_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Footpath (sensor)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.width_m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "Width m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Width (m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.weekend_vs_weekday": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "Weekend vs weekday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekend ÷ weekday": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.width_m1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "width_m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Width (m)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.weekend_vs_weekday1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "weekend_vs_weekday"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekend ÷ weekday": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.m2_each_at_peak": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "m2_each_at_peak"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m² each, busiest hour": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.zone_check": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "zone_check"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Zone check": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.note": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "note"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Note": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sensors.people_a_day": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sensors",
+			          "ConceptualProperty": "People a day"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People a day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "daily.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Daily",
+			          "ConceptualProperty": "date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Date": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
