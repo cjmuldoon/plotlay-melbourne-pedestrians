@@ -75,7 +75,7 @@ cd python && ../.venv/bin/jupyter lab footpaths_through_a_day.ipynb
 
 ### Open the Power BI report
 
-Open `powerbi/MelbourneFootpaths.pbip` in Power BI Desktop and select Refresh. [`powerbi/OPEN-ME.md`](powerbi/OPEN-ME.md) has the steps, including the two map settings Power BI asks for by hand.
+Open `powerbi/MelbourneFootpaths.pbip` in Power BI Desktop and select Refresh. [`powerbi/OPEN-ME.md`](powerbi/OPEN-ME.md) has the steps. The Shape Map's custom map is built into the report; only the Azure Maps reference layer is added by hand.
 
 ## Sources and licences
 
