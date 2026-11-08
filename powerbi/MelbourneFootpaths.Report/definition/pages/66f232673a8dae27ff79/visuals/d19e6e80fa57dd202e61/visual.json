@@ -3,10 +3,10 @@
   "name": "d19e6e80fa57dd202e61",
   "position": {
     "x": 40,
-    "y": 24,
+    "y": 18,
     "z": 0,
-    "height": 64,
-    "width": 1800,
+    "height": 86,
+    "width": 1200,
     "tabOrder": 0
   },
   "visual": {
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Azure Maps: add the reference layer data/geometry/footpath_zones.geojson (join property key) for the footpath outlines.",
+                    "value": "Azure Maps: add the reference layer data/geometry/footpath_zones.geojson (Format visual, Reference layer) for the footpath outlines; it joins on the sensor code.",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#5b6573"

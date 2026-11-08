@@ -3,10 +3,10 @@
   "name": "991e43ec45d1cd20e8ad",
   "position": {
     "x": 40,
-    "y": 24,
+    "y": 18,
     "z": 0,
-    "height": 64,
-    "width": 1100,
+    "height": 86,
+    "width": 1200,
     "tabOrder": 0
   },
   "visual": {
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "People an hour on each metre of footpath width, from the zones made in Plotlay. Pick an hour and a day type.",
+                    "value": "People an hour on each metre of footpath width, from the zones made in Plotlay. Pick an hour and a day type (5 pm on a weekday to start).",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#5b6573"

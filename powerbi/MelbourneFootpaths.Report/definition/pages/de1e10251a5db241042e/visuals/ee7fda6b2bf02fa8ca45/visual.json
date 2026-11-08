@@ -3,9 +3,9 @@
   "name": "ee7fda6b2bf02fa8ca45",
   "position": {
     "x": 1260,
-    "y": 270,
+    "y": 410,
     "z": 1,
-    "height": 340,
+    "height": 290,
     "width": 620,
     "tabOrder": 1
   },
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "HourOfDay.clock",
-              "nativeQueryRef": "clock"
+              "nativeQueryRef": "clock",
+              "displayName": "Hour"
             }
           ]
         },
@@ -45,7 +46,8 @@
                 }
               },
               "queryRef": "Sensors.People an hour",
-              "nativeQueryRef": "People an hour"
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
             }
           ]
         },
@@ -63,10 +65,29 @@
                 }
               },
               "queryRef": "DayType.day_type",
-              "nativeQueryRef": "day_type"
+              "nativeQueryRef": "day_type",
+              "displayName": "Day"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "HourOfDay"
+                  }
+                },
+                "Property": "clock"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,
@@ -85,6 +106,62 @@
               "expr": {
                 "Literal": {
                   "Value": "'All sensors by hour'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Categorical'"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Literal": {
+                  "Value": "80000D"
                 }
               }
             }

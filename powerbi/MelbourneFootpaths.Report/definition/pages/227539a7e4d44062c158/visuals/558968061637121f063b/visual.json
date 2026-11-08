@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Sensors.sensor_name",
-              "nativeQueryRef": "sensor_name"
+              "nativeQueryRef": "sensor_name",
+              "displayName": "Footpath (sensor)"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "Sensors.width_m",
-              "nativeQueryRef": "width_m"
+              "nativeQueryRef": "width_m",
+              "displayName": "Width (m)"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "Sensors.weekend_vs_weekday",
-              "nativeQueryRef": "weekend_vs_weekday"
+              "nativeQueryRef": "weekend_vs_weekday",
+              "displayName": "Weekend ÷ weekday"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "Sensors.m2_each_at_peak",
-              "nativeQueryRef": "m2_each_at_peak"
+              "nativeQueryRef": "m2_each_at_peak",
+              "displayName": "m² each, busiest hour"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "Sensors.zone_check",
-              "nativeQueryRef": "zone_check"
+              "nativeQueryRef": "zone_check",
+              "displayName": "Zone check"
             },
             {
               "field": {
@@ -97,10 +102,29 @@
                 }
               },
               "queryRef": "Sensors.note",
-              "nativeQueryRef": "note"
+              "nativeQueryRef": "note",
+              "displayName": "Note"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sensors"
+                  }
+                },
+                "Property": "sensor_name"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,
@@ -119,6 +143,127 @@
               "expr": {
                 "Literal": {
                   "Value": "'Sensors and their zones'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "457.6D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.sensor_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.3D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.width_m"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "114.6D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.weekend_vs_weekday"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.7D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.m2_each_at_peak"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "167.3D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.zone_check"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "887.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sensors.note"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

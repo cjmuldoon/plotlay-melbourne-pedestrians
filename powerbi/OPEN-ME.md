@@ -14,7 +14,23 @@
    - By default the data is read from the repo's public copy on GitHub (`DataFolder` is `https://raw.githubusercontent.com/cjmuldoon/plotlay-melbourne-pedestrians/main/data/`). If Desktop asks how to connect, choose **Anonymous** and then **Connect**.
    - To read the files from disk instead, go to **Home, Transform data, Edit parameters** and set `DataFolder` to the full path of the repo's `data` folder, **ending with a backslash** (for example `\\Mac\Home\plotlay-melbourne-pedestrians\data\`). Then select **OK** and **Apply changes**.
    - If Desktop warns about privacy levels, choose **Ignore privacy levels** (all the sources are public open data).
-3. After the refresh, check page 1. Pick **17:00** and **Weekday** on the slicers: the line chart peaks at about the README's weekday 5 pm figure. Pick **Southern Cross Station** on the Weekday city page: weekend ÷ weekday reads 0.16. If both match, everything is joined correctly.
+3. Check the numbers (below).
+
+## Check the numbers after Refresh
+
+After **Refresh**, with the slicers on **17:00** and **Weekday** (as the report opens; each takes one value at a time):
+
+| Through a day card | Should read |
+|---|---|
+| People an hour, all sensors, hour picked | 67,022 (Power BI may show 67.0K) |
+| Median m² each, compared footpaths, hour picked | 18.6 |
+| Median m² each at each footpath's busiest hour, day type picked | 16.2 (the README's weekday median) |
+
+The bar chart lists the 8 compared footpaths with the most people an hour per metre of width at 5 pm, busiest first: Spencer St-Collins St (North) 534, Southern Cross Station 524, Bourke St - Spencer St (North) 503, and so on.
+
+Set Day to **Weekend** and Hour to **15:00** (the weekend peak): the cards read 60,716, 18.8 and 18.1. Set Hour to **04:00** on a weekday: 1,051 people an hour and a median 1,420.6 m² each.
+
+On **Weekday city, weekend city**, Southern Cross Station's bar reads 0.16 and Lygon St (West) 1.58.
 
 ## The model
 
@@ -22,24 +38,20 @@
 - **Hours**: `hour_of_day.csv` unpivoted in Power Query to one row per sensor, hour and day type (Weekday, Weekend).
 - **Daily**: people a day per sensor.
 - **HourOfDay** (0 to 23, with a `clock` label sorted by the hour) and **DayType**: for the slicers and the play axis.
-- Measures: `People an hour`, `Width m`, `People an hour per m`, `m2 each` (1.2 m/s × 3600 ÷ people an hour per metre), `Car spaces each`, `Weekend vs weekday`, `People a day`.
+- Measures: `People an hour`, `Width m`, `People an hour per m`, `m2 each` (1.2 m/s × 3600 ÷ people an hour per metre), `Median m2 each`, `Median m2 each at peak`, `Car spaces each`, `Weekend vs weekday`, `People a day`. Every people-an-hour measure counts one hour on one day type: the ones picked on the slicers, or 17:00 on a weekday when none is (`Hour shown`, `Day type shown`). The medians are over the compared footpaths of each footpath's own value.
 
-## Two map settings Power BI asks for by hand
+## The two maps
 
-Power BI only keeps a custom map file and a reference layer once you have chosen them in Desktop, so do this once and save:
-
-- **Shape Map** (page 1). Select the map. In **Format visual, Visual, Map settings**, set the map type to **Custom map**, choose **Add map type**, and pick `..\data\geometry\footpath_zones.topojson`. Under **View map keys** the sensor ids (4, 41, 66...) should match. Zoom in on the city. If the Shape Map isn't in the Visualizations pane, turn it on in **Options, Preview features, Shape map visual**. The zones are thin, so set the map's border width to 2 or more.
-- **Azure Maps** (Map of the sensors page). Your organisation's admin must allow it (tenant setting "Use Azure Maps visual"); a personal account has it on by default. Select the map, then go to **Format visual, Reference layer**, set the data source to **File** and choose `..\data\geometry\footpath_zones.geojson`, with join property `key`. Use the **Grayscale (light)** or **Blank** map style for screenshots. Don't publish satellite basemap screenshots.
+- **Shape Map** (page 1). The custom map is saved inside the report (`MelbourneFootpaths.Report/StaticResources/RegisteredResources/footpath_zones.topojson`, a copy of `data/geometry/footpath_zones.topojson` that keeps only the sensor code), so the footpath zones draw on open, coloured by people an hour per metre of width. It matches `Sensors[map_key]` (the sensor code as text). If the map shows the United States instead (an older Desktop can ignore a saved map): select the map, **Format visual** (the paintbrush), **Visual**, **Map settings**, **Map type: Custom map**, **Add map type** (or **Browse**), and choose `..\data\geometry\footpath_zones.topojson`. Under **View map keys** the sensor codes (4, 41, 66...) should be matched. The zones are thin, so a border width of 2 or more helps. If the Shape Map isn't in the Visualizations pane at all, turn it on in **File, Options and settings, Options, Preview features, Shape map visual** and restart Desktop.
+- **Azure Maps** (Map of the sensors page). The sensors are plotted from their latitude and longitude (averaged, one point per sensor), with the sensor code in Location and the name in the tooltip. Your organisation's admin must allow Azure Maps (tenant setting "Use Azure Maps visual"); a personal account has it on by default. The footpath outlines are a reference layer, which Power BI can't take from a file in the project, so add it by hand: select the map, **Format visual**, **Visual**, **Reference layer**, **Data source: File** (or **URL**), and choose `..\data\geometry\footpath_zones.geojson`. Its `key` property is the sensor code, the same value as the map's Location. Use the **Grayscale (light)** or **Blank** style for screenshots; don't publish satellite basemap screenshots.
 
 If a map visual comes up empty, drag the fields back:
-- Shape Map: Location `Sensors[sensor_key]`, Color saturation `[People an hour per m]`.
-- Azure Maps: Location `Sensors[sensor_name]`, Latitude and Longitude, Size `[People an hour]`.
-
-Then save with **File, Save**.
+- Shape Map: Location `Sensors[map_key]`, Color saturation `[People an hour per m]`.
+- Azure Maps: Location `Sensors[map_key]`, Latitude `Sensors[latitude]` (Average), Longitude `Sensors[longitude]` (Average), Size `[People an hour]`, Tooltips `Sensors[sensor_name]` (First).
 
 ## Save a .pbix too
 
-After the refresh and the map settings, use **File, Save as** with the type **Power BI file (\*.pbix)** to save `powerbi\MelbourneFootpaths.pbix`. It includes the data, so it opens without a refresh.
+After the refresh, use **File, Save as** with the type **Power BI file (\*.pbix)** to save `powerbi\MelbourneFootpaths.pbix`. It includes the data, so it opens without a refresh.
 
 ## Publish (only if you choose to)
 
@@ -51,9 +63,9 @@ Capture at 1920 × 1080 (Windows display scaling 100%), with the Plotlay theme. 
 
 | # | Shot | How | Length |
 |---|---|---|---|
-| 1 | Through a day, 5 pm weekday | Hour 17:00, Day Weekday | still |
+| 1 | Through a day, 5 pm weekday | Hour 17:00, Day Weekday (as it opens) | still |
 | 2 | Through a day, 4 am | Hour 04:00: the map goes pale | still |
-| 3 | The hour stepping | Click 06:00, 08:00, 12:00, 17:00, 21:00 on the slicer, about 1 s each | 6 to 8 s clip |
+| 3 | The hour stepping | Pick 06:00, 08:00, 12:00, 17:00, 21:00 in the Hour dropdown, about 1 s each | 6 to 8 s clip |
 | 4 | Play the day | Press the play button under the scatter chart and let it run 0 to 23 | 10 to 15 s clip |
 | 5 | Weekday city, weekend city | The ranked bar chart with the Southern Cross and Lygon St lines | still |
 | 6 | Busiest days | The daily line, hovering over Saturday 7 March 2026 | still |

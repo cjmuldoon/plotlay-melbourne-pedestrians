@@ -1,27 +1,62 @@
 table Sensors
 	lineageTag: af29aa17-8ae4-3211-319e-28f627e96590
 
-	/// The average people in an hour: the sum over the sensors in the filter, averaged over the hours in the filter (and over weekdays and weekends unless a day type is picked)
-	measure 'People an hour' = AVERAGEX ( VALUES ( Hours[hour] ), CALCULATE ( SUM ( Hours[people] ) ) )
+	/// The hour the measures use: the hour picked, or 17 (5 pm) when none is
+	measure 'Hour shown' = IF ( HASONEVALUE ( HourOfDay[hour] ), VALUES ( HourOfDay[hour] ), 17 )
+		formatString: 0
+		lineageTag: c4a548a2-2ce4-bbca-fbfb-9d606cafca08
+
+	/// Weekday or Weekend: the day type picked, or Weekday when none is
+	measure 'Day type shown' = IF ( HASONEVALUE ( DayType[day_type] ), VALUES ( DayType[day_type] ), "Weekday" )
+		lineageTag: 6a8a2f56-cee0-fb86-4f84-adb5837035a0
+
+	/// Average people in the hour shown on the day type shown, added up over the sensors in the filter
+	measure 'People an hour' =
+			VAR h = [Hour shown]
+			VAR d = [Day type shown]
+			RETURN CALCULATE ( SUM ( Hours[people] ), HourOfDay[hour] = h, DayType[day_type] = d )
 		formatString: #,0
 		lineageTag: a14c2fa8-718d-7607-c1bd-04b545425e32
 
 	/// Footpath width from the zone shape: (P - SQRT(P^2 - 16A)) / 4
 	measure 'Width m' = AVERAGE ( Sensors[width_m] )
-		formatString: 0.0
+		formatString: #,0.0
 		lineageTag: 4c3b3da5-327b-50f6-19d9-9c86c29899d8
 
-	/// People an hour on each metre of footpath width (averaged over the sensors in the filter)
-	measure 'People an hour per m' =
-			VAR t = SUMX ( VALUES ( Sensors[sensor_key] ), DIVIDE ( CALCULATE ( [People an hour] ), CALCULATE ( [Width m] ) ) )
-			RETURN DIVIDE ( t, DISTINCTCOUNT ( Sensors[sensor_key] ) )
+	/// People an hour on each metre of footpath width, in the hour shown (averaged over the sensors in the filter)
+	measure 'People an hour per m' = AVERAGEX ( FILTER ( VALUES ( Sensors[sensor_key] ), NOT ISBLANK ( [Width m] ) ), DIVIDE ( [People an hour], [Width m] ) )
 		formatString: #,0
 		lineageTag: 03b7d47c-7ac2-91dd-0005-1a77332d9ee0
 
-	/// Space each person has: walking speed (1.2 m/s) x 3600 / people an hour per metre of width
+	/// Space each person has in the hour shown: walking speed (1.2 m/s) x 3600 / people an hour per metre of width
 	measure 'm2 each' = DIVIDE ( 1.2 * 3600, [People an hour per m] )
-		formatString: 0.0
+		formatString: #,0.0
 		lineageTag: 5e04e006-cee5-c36a-8b17-403432f53e3c
+
+	/// Median over the compared footpaths of each one's space each, in the hour shown
+	measure 'Median m2 each' =
+			MEDIANX (
+			    FILTER ( CALCULATETABLE ( VALUES ( Sensors[sensor_key] ), KEEPFILTERS ( Sensors[compare] = TRUE () ) ), [People an hour] > 0 && NOT ISBLANK ( [Width m] ) ),
+			    DIVIDE ( 1.2 * 3600 * [Width m], [People an hour] )
+			)
+		formatString: #,0.0
+		lineageTag: 36c545f0-64a3-4145-bc72-ce22aea40c53
+
+	/// A footpath's busiest hour on the day type shown (for one sensor)
+	measure 'Peak people an hour' =
+			VAR d = [Day type shown]
+			RETURN CALCULATE ( MAXX ( VALUES ( HourOfDay[hour] ), CALCULATE ( SUM ( Hours[people] ) ) ), REMOVEFILTERS ( HourOfDay ), DayType[day_type] = d )
+		formatString: #,0
+		lineageTag: 27bb6116-c288-d0ce-b8d3-e419546ca417
+
+	/// Median over the compared footpaths of the space each at each one's own busiest hour, on the day type shown (the README median)
+	measure 'Median m2 each at peak' =
+			MEDIANX (
+			    FILTER ( CALCULATETABLE ( VALUES ( Sensors[sensor_key] ), KEEPFILTERS ( Sensors[compare] = TRUE () ) ), [Peak people an hour] > 0 && NOT ISBLANK ( [Width m] ) ),
+			    DIVIDE ( 1.2 * 3600 * [Width m], [Peak people an hour] )
+			)
+		formatString: #,0.0
+		lineageTag: bd59e9e1-2b2c-274b-e078-7b396423bd01
 
 	/// A car space (AS/NZS 2890.1, class 1A) is 2.4 x 5.4 m
 	measure 'Car spaces each' = DIVIDE ( [m2 each], 12.96 )
@@ -29,12 +64,12 @@ table Sensors
 		lineageTag: 2bae85e2-cd3f-af58-a399-954d9f79129a
 
 	/// The average weekday: the 24 hourly averages added up
-	measure 'Weekday day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekday" )
+	measure 'Weekday day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekday", REMOVEFILTERS ( HourOfDay ) )
 		formatString: #,0
 		displayFolder: Weekend
 		lineageTag: 5b0bf5a7-b85c-5f38-4d03-5b30a1ad23a6
 
-	measure 'Weekend day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekend" )
+	measure 'Weekend day' = CALCULATE ( SUM ( Hours[people] ), DayType[day_type] = "Weekend", REMOVEFILTERS ( HourOfDay ) )
 		formatString: #,0
 		displayFolder: Weekend
 		lineageTag: 6cf44ec0-6254-c251-278a-15a5546cb5b1
@@ -171,6 +206,14 @@ table Sensors
 
 		annotation SummarizationSetBy = Automatic
 
+	column map_key
+		dataType: string
+		lineageTag: ee37cc5b-e57a-a986-8c68-7acf6e16e52b
+		summarizeBy: none
+		sourceColumn: map_key
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Sensors = m
 		mode: import
 		source =
@@ -178,8 +221,9 @@ table Sensors
 				    Source = Csv.Document(GetFile("counts/sensors.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 				    Kept = Table.SelectColumns(Promoted, {"sensor_key", "sensor_name", "latitude", "longitude", "zone_made_by", "zone_check", "compare", "note", "area_m2", "perimeter_m", "width_m", "weekend_vs_weekday", "m2_each_at_peak"}),
-				    Typed = Table.TransformColumnTypes(Kept, {{"sensor_key", Int64.Type}, {"sensor_name", type text}, {"latitude", type number}, {"longitude", type number}, {"zone_made_by", type text}, {"zone_check", type text}, {"compare", type logical}, {"note", type text}, {"area_m2", type number}, {"perimeter_m", type number}, {"width_m", type number}, {"weekend_vs_weekday", type number}, {"m2_each_at_peak", type number}}, "en-AU")
+				    Typed = Table.TransformColumnTypes(Kept, {{"sensor_key", Int64.Type}, {"sensor_name", type text}, {"latitude", type number}, {"longitude", type number}, {"zone_made_by", type text}, {"zone_check", type text}, {"compare", type logical}, {"note", type text}, {"area_m2", type number}, {"perimeter_m", type number}, {"width_m", type number}, {"weekend_vs_weekday", type number}, {"m2_each_at_peak", type number}}, "en-AU"),
+				    Keyed = Table.AddColumn(Typed, "map_key", each Text.From([sensor_key]), type text)
 				in
-				    Typed
+				    Keyed
 
 	annotation PBI_ResultType = Table

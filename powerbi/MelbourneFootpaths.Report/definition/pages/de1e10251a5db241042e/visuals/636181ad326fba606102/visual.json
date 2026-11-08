@@ -5,7 +5,7 @@
     "x": 1580,
     "y": 110,
     "z": 1,
-    "height": 140,
+    "height": 150,
     "width": 300,
     "tabOrder": 1
   },
@@ -23,11 +23,12 @@
                       "Entity": "Sensors"
                     }
                   },
-                  "Property": "m2 each"
+                  "Property": "Median m2 each"
                 }
               },
-              "queryRef": "Sensors.m2 each",
-              "nativeQueryRef": "m2 each"
+              "queryRef": "Sensors.Median m2 each",
+              "nativeQueryRef": "Median m2 each",
+              "displayName": "Median m² each"
             }
           ]
         }
@@ -48,7 +49,29 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'m² each (average footpath)'"
+                  "Value": "'Median m² each, compared footpaths, hour picked'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

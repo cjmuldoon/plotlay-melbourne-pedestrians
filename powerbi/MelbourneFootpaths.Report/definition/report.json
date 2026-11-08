@@ -29,6 +29,11 @@
           "name": "Plotlay_drafting_film.json",
           "path": "Plotlay_drafting_film.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "footpath_zones.topojson",
+          "path": "footpath_zones.topojson",
+          "type": "ShapeMap"
         }
       ]
     }

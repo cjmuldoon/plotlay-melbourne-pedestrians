@@ -23,11 +23,12 @@
                       "Entity": "Sensors"
                     }
                   },
-                  "Property": "sensor_name"
+                  "Property": "map_key"
                 }
               },
-              "queryRef": "Sensors.sensor_name",
-              "nativeQueryRef": "sensor_name"
+              "queryRef": "Sensors.map_key",
+              "nativeQueryRef": "map_key",
+              "displayName": "Sensor"
             }
           ]
         },
@@ -35,17 +36,23 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "Sensors"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sensors"
+                        }
+                      },
+                      "Property": "latitude"
                     }
                   },
-                  "Property": "latitude"
+                  "Function": 1
                 }
               },
-              "queryRef": "Sensors.latitude",
-              "nativeQueryRef": "latitude"
+              "queryRef": "Avg(Sensors.latitude)",
+              "nativeQueryRef": "latitude",
+              "displayName": "Latitude"
             }
           ]
         },
@@ -53,17 +60,23 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "Sensors"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sensors"
+                        }
+                      },
+                      "Property": "longitude"
                     }
                   },
-                  "Property": "longitude"
+                  "Function": 1
                 }
               },
-              "queryRef": "Sensors.longitude",
-              "nativeQueryRef": "longitude"
+              "queryRef": "Avg(Sensors.longitude)",
+              "nativeQueryRef": "longitude",
+              "displayName": "Longitude"
             }
           ]
         },
@@ -81,7 +94,47 @@
                 }
               },
               "queryRef": "Sensors.People an hour",
-              "nativeQueryRef": "People an hour"
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sensors"
+                        }
+                      },
+                      "Property": "sensor_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Sensors.sensor_name)",
+              "nativeQueryRef": "sensor_name",
+              "displayName": "Footpath (sensor)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "People an hour per m"
+                }
+              },
+              "queryRef": "Sensors.People an hour per m",
+              "nativeQueryRef": "People an hour per m",
+              "displayName": "People an hour per m of width"
             }
           ]
         }
@@ -102,7 +155,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sensors (bubble size: people an hour)'"
+                  "Value": "'Sensors (bubble size: people an hour, hour picked)'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

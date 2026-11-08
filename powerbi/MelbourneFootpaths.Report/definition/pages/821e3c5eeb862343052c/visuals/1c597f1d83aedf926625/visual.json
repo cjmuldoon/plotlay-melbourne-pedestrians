@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Sensors.sensor_name",
-              "nativeQueryRef": "sensor_name"
+              "nativeQueryRef": "sensor_name",
+              "displayName": "Footpath (sensor)"
             }
           ]
         },
@@ -45,7 +46,8 @@
                 }
               },
               "queryRef": "Sensors.Width m",
-              "nativeQueryRef": "Width m"
+              "nativeQueryRef": "Width m",
+              "displayName": "Width (m)"
             }
           ]
         },
@@ -63,7 +65,8 @@
                 }
               },
               "queryRef": "Sensors.People an hour per m",
-              "nativeQueryRef": "People an hour per m"
+              "nativeQueryRef": "People an hour per m",
+              "displayName": "People an hour per m of width"
             }
           ]
         },
@@ -81,7 +84,8 @@
                 }
               },
               "queryRef": "Sensors.People an hour",
-              "nativeQueryRef": "People an hour"
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
             }
           ]
         },
@@ -99,7 +103,8 @@
                 }
               },
               "queryRef": "HourOfDay.clock",
-              "nativeQueryRef": "clock"
+              "nativeQueryRef": "clock",
+              "displayName": "Hour"
             }
           ]
         }
@@ -120,7 +125,42 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Footpaths through the day'"
+                  "Value": "'Compared footpaths through the day'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

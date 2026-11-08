@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Sensors.sensor_name",
-              "nativeQueryRef": "sensor_name"
+              "nativeQueryRef": "sensor_name",
+              "displayName": "Footpath (sensor)"
             }
           ]
         },
@@ -45,10 +46,29 @@
                 }
               },
               "queryRef": "Sensors.Weekend vs weekday",
-              "nativeQueryRef": "Weekend vs weekday"
+              "nativeQueryRef": "Weekend vs weekday",
+              "displayName": "Weekend ÷ weekday"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sensors"
+                  }
+                },
+                "Property": "Weekend vs weekday"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "drillFilterOtherVisuals": true,
@@ -66,7 +86,55 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekend day ÷ weekday'"
+                  "Value": "'Weekend day ÷ weekday, the 51 compared footpaths, largest first'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

@@ -5,7 +5,7 @@
     "x": 1260,
     "y": 110,
     "z": 1,
-    "height": 140,
+    "height": 150,
     "width": 300,
     "tabOrder": 1
   },
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Sensors.People an hour",
-              "nativeQueryRef": "People an hour"
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
             }
           ]
         }
@@ -48,7 +49,29 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'People an hour, all sensors'"
+                  "Value": "'People an hour, all sensors, hour picked'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

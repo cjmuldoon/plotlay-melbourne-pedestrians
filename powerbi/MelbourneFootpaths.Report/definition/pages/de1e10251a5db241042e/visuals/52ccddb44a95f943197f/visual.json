@@ -23,15 +23,16 @@
                       "Entity": "Sensors"
                     }
                   },
-                  "Property": "sensor_key"
+                  "Property": "map_key"
                 }
               },
-              "queryRef": "Sensors.sensor_key",
-              "nativeQueryRef": "sensor_key"
+              "queryRef": "Sensors.map_key",
+              "nativeQueryRef": "map_key",
+              "displayName": "Sensor"
             }
           ]
         },
-        "Y": {
+        "Value": {
           "projections": [
             {
               "field": {
@@ -45,7 +46,62 @@
                 }
               },
               "queryRef": "Sensors.People an hour per m",
-              "nativeQueryRef": "People an hour per m"
+              "nativeQueryRef": "People an hour per m",
+              "displayName": "People an hour per m of width"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sensors"
+                        }
+                      },
+                      "Property": "sensor_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Sensors.sensor_name)",
+              "nativeQueryRef": "sensor_name",
+              "displayName": "Footpath (sensor)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "People an hour"
+                }
+              },
+              "queryRef": "Sensors.People an hour",
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "m2 each"
+                }
+              },
+              "queryRef": "Sensors.m2 each",
+              "nativeQueryRef": "m2 each",
+              "displayName": "m² each"
             }
           ]
         }
@@ -66,7 +122,70 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'People an hour per m of width (custom map: data/geometry/footpath_zones.topojson)'"
+                  "Value": "'People an hour per m of footpath width, hour picked (darker: busier)'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "shape": [
+        {
+          "properties": {
+            "datasourceType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'file_upload'"
+                }
+              }
+            },
+            "mapUrl": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "map": {
+              "geoJson": {
+                "type": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'packaged'"
+                    }
+                  }
+                },
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'footpath_zones.topojson'"
+                    }
+                  }
+                },
+                "content": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "footpath_zones.topojson"
+                    }
+                  }
+                }
+              }
+            },
+            "projectionEnum": {
+              "expr": {
+                "Literal": {
+                  "Value": "'mercator'"
                 }
               }
             }
