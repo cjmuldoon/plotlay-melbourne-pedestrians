@@ -7,6 +7,7 @@ model Model
 		returnErrorValuesAsNull
 
 annotation PBI_QueryOrder = ["DataFolder","GetFile","Sensors","Hours","Daily","HourOfDay","DayType"]
+annotation __PBI_TimeIntelligenceEnabled = 0
 
 ref table Sensors
 ref table Hours

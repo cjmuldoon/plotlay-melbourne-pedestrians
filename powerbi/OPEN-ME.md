@@ -59,7 +59,7 @@ Use **Home, Publish**. In the Power BI service, set the semantic model's **Data 
 
 ## Shot list for the website and the video
 
-Capture at 1920 × 1080 (Windows display scaling 100%), with the Plotlay theme. Use the Snipping Tool (Win+Shift+S) for stills and the Xbox Game Bar (Win+Alt+R) or Clipchamp for clips. Save them to `powerbi/screenshots/`.
+Capture at 1920 × 1080 (Windows display scaling 100%), with the Plotlay theme. Use the Snipping Tool (Win+Shift+S) for stills and the Xbox Game Bar (Win+Alt+R) or Clipchamp for clips. Save them to `powerbi/Screenshots/`.
 
 | # | Shot | How | Length |
 |---|---|---|---|
