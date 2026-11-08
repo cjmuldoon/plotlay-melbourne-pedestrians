@@ -122,7 +122,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'People an hour per m of footpath width, hour picked (darker: busier)'"
+                  "Value": "'People an hour per m of footpath width, hour picked'"
                 }
               }
             },
@@ -314,7 +314,7 @@
   "annotations": [
     {
       "name": "plotlay.legend",
-      "value": "[[\"#6b1a10\", \"darker: more\"], [\"#f8dcc6\", \"paler: less\"]]"
+      "value": "[[\"#6b1a10\", \"darker: busier\"], [\"#f8dcc6\", \"paler: quieter\"]]"
     }
   ]
 }

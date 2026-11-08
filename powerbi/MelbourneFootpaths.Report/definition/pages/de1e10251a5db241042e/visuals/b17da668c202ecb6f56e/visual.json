@@ -23,11 +23,11 @@
                       "Entity": "Sensors"
                     }
                   },
-                  "Property": "sensor_name"
+                  "Property": "sensor_name_short"
                 }
               },
-              "queryRef": "Sensors.sensor_name",
-              "nativeQueryRef": "sensor_name",
+              "queryRef": "Sensors.sensor_name_short",
+              "nativeQueryRef": "sensor_name_short",
               "displayName": "Footpath (sensor)",
               "active": true
             }
@@ -214,7 +214,7 @@
                 "Entity": "Sensors"
               }
             },
-            "Property": "sensor_name"
+            "Property": "sensor_name_short"
           }
         },
         "type": "TopN",
@@ -242,7 +242,7 @@
                               "Source": "s"
                             }
                           },
-                          "Property": "sensor_name"
+                          "Property": "sensor_name_short"
                         },
                         "Name": "field"
                       }
@@ -286,7 +286,7 @@
                             "Source": "s"
                           }
                         },
-                        "Property": "sensor_name"
+                        "Property": "sensor_name_short"
                       }
                     }
                   ],
@@ -302,5 +302,11 @@
         }
       }
     ]
-  }
+  },
+  "annotations": [
+    {
+      "name": "plotlay.categoryLabels",
+      "value": "[\"114 Flinders St car park\", \"474 Flinders Street\", \"61-67 Power St…\", \"Bourke St Mall (South)\", \"Bourke St-Spencer St N\", \"Chinatown-Lt Bourke St S\", \"Chinatown-Swanston St…\", \"Elizabeth St-Flinders St…\", \"Elizabeth St-Lonsdale St S\", \"Flinders La-Swanston St…\", \"Flinders Ln-Degraves St S\", \"Flinders Underpass gates\", \"Flinders Underpass walk\", \"Harbour Esp W path\", \"King St and Flinders St\", \"King St and Latrobe St\", \"La Trobe St-William St S\", \"Lonsdale St-Elizabeth St…\", \"Lt Collins St-Swanston…\", \"MCEC\", \"Melb Central-Elizabeth…\", \"QV2, 300 Swanston Street\", \"RMIT 22, 330 Swanston St\", \"Spencer St, Batman Park\", \"Spencer St-Collins St N\", \"Spencer St-Collins St S\", \"St Kilda Rd-Alexandra…\", \"Sthn Cross Bourke St N\", \"Sthn Cross Bourke St S\", \"Sthn Cross Lonsdale St S\"]"
+    }
+  ]
 }

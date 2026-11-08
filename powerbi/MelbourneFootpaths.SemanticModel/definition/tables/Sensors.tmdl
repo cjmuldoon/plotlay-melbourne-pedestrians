@@ -214,6 +214,14 @@ table Sensors
 
 		annotation SummarizationSetBy = Automatic
 
+	column sensor_name_short
+		dataType: string
+		lineageTag: 67c2129c-33f4-d0af-1805-e43603586d3b
+		summarizeBy: none
+		sourceColumn: sensor_name_short
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Sensors = m
 		mode: import
 		source =
@@ -222,8 +230,10 @@ table Sensors
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 				    Kept = Table.SelectColumns(Promoted, {"sensor_key", "sensor_name", "latitude", "longitude", "zone_made_by", "zone_check", "compare", "note", "area_m2", "perimeter_m", "width_m", "weekend_vs_weekday", "m2_each_at_peak"}),
 				    Typed = Table.TransformColumnTypes(Kept, {{"sensor_key", Int64.Type}, {"sensor_name", type text}, {"latitude", type number}, {"longitude", type number}, {"zone_made_by", type text}, {"zone_check", type text}, {"compare", type logical}, {"note", type text}, {"area_m2", type number}, {"perimeter_m", type number}, {"width_m", type number}, {"weekend_vs_weekday", type number}, {"m2_each_at_peak", type number}}, "en-AU"),
-				    Keyed = Table.AddColumn(Typed, "map_key", each Text.From([sensor_key]), type text)
+				    Keyed = Table.AddColumn(Typed, "map_key", each Text.From([sensor_key]), type text),
+				    ShortNames_sensor_name_short = [#"114 Flinders Street Car Park Footpath" = "114 Flinders St car park", #"61-67 Power Street Southbank" = "61-67 Power St…", #"Awning of Nationwide Parking 474 Flinders Street" = "474 Flinders Street", #"Bourke St - Spencer St (North)" = "Bourke St-Spencer St N", #"Bourke Street Mall (South)" = "Bourke St Mall (South)", #"Chinatown-Lt Bourke St (South)" = "Chinatown-Lt Bourke St S", #"Chinatown-Swanston St (North)" = "Chinatown-Swanston St…", #"Elizabeth St - Flinders St (East) - New footpath" = "Elizabeth St-Flinders St…", #"Elizabeth St-Lonsdale St (South)" = "Elizabeth St-Lonsdale St S", #"Flinders La-Swanston St (West)" = "Flinders La-Swanston St…", #"Flinders Ln -Degraves St (South)" = "Flinders Ln-Degraves St S", #"Flinders Underpass - Myki Barriers" = "Flinders Underpass gates", #"Flinders Underpass - Walkway" = "Flinders Underpass walk", #"Harbour Esplanade (West) - Pedestrian path" = "Harbour Esp W path", #"I-Hub Corner of King Street and Flinders Street (2-6 King)" = "King St and Flinders St", #"I-Hub Corner of King Street and Latrobe Street (317-335 King)" = "King St and Latrobe St", #"I-Hub Southern Cross Station - Bourke Street Entrance - North" = "Sthn Cross Bourke St N", #"I-Hub Southern Cross Station - Bourke Street Entrance - South" = "Sthn Cross Bourke St S", #"I-Hub Southern Cross Station - Lonsdale Street Entrance - South" = "Sthn Cross Lonsdale St S", #"La Trobe St- William St (South)" = "La Trobe St-William St S", #"Little Collins St-Swanston St (East)" = "Lt Collins St-Swanston…", #"Lonsdale St - Elizabeth St (North)" = "Lonsdale St-Elizabeth St…", #"Melbourne Central-Elizabeth St (East)" = "Melb Central-Elizabeth…", #"Melbourne Convention Exhibition Centre" = "MCEC", #"Mounted on Toilet - Spencer Street, Batman Park" = "Spencer St, Batman Park", #"QV2 Apartments, 300 Swanston Street" = "QV2, 300 Swanston Street", #"RMIT Building 22 - 330 Swanston Street" = "RMIT 22, 330 Swanston St", #"Spencer St-Collins St (North)" = "Spencer St-Collins St N", #"Spencer St-Collins St (South)" = "Spencer St-Collins St S", #"St Kilda Rd-Alexandra Gardens" = "St Kilda Rd-Alexandra…"],
+				    Short_sensor_name_short = Table.AddColumn(Keyed, "sensor_name_short", each Record.FieldOrDefault(ShortNames_sensor_name_short, [sensor_name], [sensor_name]), type text)
 				in
-				    Keyed
+				    Short_sensor_name_short
 
 	annotation PBI_ResultType = Table
