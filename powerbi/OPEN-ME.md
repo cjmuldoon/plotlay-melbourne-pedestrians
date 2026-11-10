@@ -70,7 +70,7 @@ Capture at 1920 × 1080 (Windows display scaling 100%), with the Plotlay theme. 
 | 3 | The hour stepping | Pick 06:00, 08:00, 12:00, 17:00, 21:00 in the Hour dropdown, about 1 s each | 6 to 8 s clip |
 | 4 | Play the day | Press the play button under the scatter chart and let it run 0 to 23 | 10 to 15 s clip |
 | 5 | Weekday city, weekend city | The ranked bar chart with the Southern Cross and Lygon St lines | still |
-| 6 | Busiest days | The daily line, hovering over Saturday 7 March 2026 | still |
+| 6 | Busiest days | The monthly line (the average day of each month) | still |
 | 7 | Map of the sensors | Azure Maps with the reference layer, grayscale | still |
 | 8 | Model view and Power Query | The five tables and their relationships; the Hours query's unpivot step | 2 stills |
 

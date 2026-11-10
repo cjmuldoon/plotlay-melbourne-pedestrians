@@ -4,5 +4,12 @@
   "displayName": "Through a day",
   "displayOption": "FitToPage",
   "height": 1080,
-  "width": 1920
+  "width": 1920,
+  "visualInteractions": [
+    {
+      "source": "607b5fb44d67fd4aadc0",
+      "target": "ee7fda6b2bf02fa8ca45",
+      "type": "NoFilter"
+    }
+  ]
 }

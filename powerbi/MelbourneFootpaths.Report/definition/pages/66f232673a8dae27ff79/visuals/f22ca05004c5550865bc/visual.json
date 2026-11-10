@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "f22ca05004c5550865bc",
   "position": {
-    "x": 1552.7402135231316,
-    "y": 5.1245551601423482,
+    "x": 1552,
+    "y": 4,
     "z": 2,
-    "height": 90.533807829181484,
-    "width": 327.97153024911029,
+    "height": 100,
+    "width": 328,
     "tabOrder": 2
   },
   "visual": {
@@ -28,12 +28,28 @@
               },
               "queryRef": "DayType.day_type",
               "nativeQueryRef": "day_type",
-              "active": true,
-              "displayName": "Day"
+              "displayName": "Day",
+              "active": true
             }
           ]
         }
       }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "objects": {
       "data": [
@@ -149,40 +165,6 @@
           }
         }
       ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "30dfd4c1b7e9c4497d49",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DayType"
-              }
-            },
-            "Property": "day_type"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
+    }
   }
 }

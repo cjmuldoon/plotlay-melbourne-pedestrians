@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "cbf2bbeb37f27f7a7dc0",
   "position": {
-    "x": 39.288256227758005,
-    "y": 6.832740213523131,
+    "x": 40,
+    "y": 18,
     "z": 0,
-    "height": 90.533807829181484,
-    "width": 1841.4234875444838
+    "height": 91,
+    "width": 1840,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -20,10 +21,10 @@
                   {
                     "value": "WEEKDAY CITY, WEEKEND CITY",
                     "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI Semibold",
                       "fontSize": "24pt",
-                      "color": "#163c6e"
+                      "color": "#163c6e",
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontWeight": "bold"
                     }
                   }
                 ]
@@ -33,9 +34,9 @@
                   {
                     "value": "A weekend day divided by a weekday. Southern Cross Station is a commuter footpath; Lygon St in Carlton fills at weekends.",
                     "textStyle": {
-                      "fontFamily": "Segoe UI",
                       "fontSize": "11pt",
-                      "color": "#5b6573"
+                      "color": "#5b6573",
+                      "fontFamily": "Segoe UI"
                     }
                   }
                 ]

@@ -3,9 +3,9 @@
   "name": "26da707d1edae0f5e203",
   "position": {
     "x": 40,
-    "y": 110,
+    "y": 133,
     "z": 1,
-    "height": 600,
+    "height": 577,
     "width": 1840,
     "tabOrder": 1
   },
@@ -23,12 +23,12 @@
                       "Entity": "Daily"
                     }
                   },
-                  "Property": "date"
+                  "Property": "month"
                 }
               },
-              "queryRef": "Daily.date",
-              "nativeQueryRef": "date",
-              "displayName": "Date",
+              "queryRef": "Daily.month",
+              "nativeQueryRef": "month",
+              "displayName": "Month",
               "active": true
             }
           ]
@@ -43,12 +43,12 @@
                       "Entity": "Sensors"
                     }
                   },
-                  "Property": "People a day"
+                  "Property": "People a day, month average"
                 }
               },
-              "queryRef": "Sensors.People a day",
-              "nativeQueryRef": "People a day",
-              "displayName": "People a day"
+              "queryRef": "Sensors.People a day, month average",
+              "nativeQueryRef": "People a day, month average",
+              "displayName": "People a day (average day)"
             }
           ]
         }
@@ -63,7 +63,7 @@
                     "Entity": "Daily"
                   }
                 },
-                "Property": "date"
+                "Property": "month"
               }
             },
             "direction": "Ascending"
@@ -86,7 +86,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'People a day, all zoned sensors'"
+                  "Value": "'People a day, all zoned sensors: the average day of each month'"
                 }
               }
             },
@@ -115,7 +115,7 @@
             "axisType": {
               "expr": {
                 "Literal": {
-                  "Value": "'Continuous'"
+                  "Value": "'Categorical'"
                 }
               }
             },
@@ -149,7 +149,7 @@
             "end": {
               "expr": {
                 "Literal": {
-                  "Value": "1.5e+06D"
+                  "Value": "900000D"
                 }
               }
             }
@@ -157,5 +157,11 @@
         }
       ]
     }
-  }
+  },
+  "annotations": [
+    {
+      "name": "plotlay.categoryPoints",
+      "value": "12"
+    }
+  ]
 }

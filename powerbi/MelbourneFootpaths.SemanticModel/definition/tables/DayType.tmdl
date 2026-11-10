@@ -18,4 +18,3 @@ table DayType
 				    Source
 
 	annotation PBI_ResultType = Table
-

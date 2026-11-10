@@ -7,10 +7,7 @@ model Model
 		returnErrorValuesAsNull
 
 annotation PBI_QueryOrder = ["DataFolder","GetFile","Sensors","Hours","Daily","HourOfDay","DayType"]
-
 annotation __PBI_TimeIntelligenceEnabled = 0
-
-annotation PBI_ProTooling = ["DevMode"]
 
 ref table Sensors
 ref table Hours
@@ -19,4 +16,3 @@ ref table HourOfDay
 ref table DayType
 
 ref cultureInfo en-AU
-

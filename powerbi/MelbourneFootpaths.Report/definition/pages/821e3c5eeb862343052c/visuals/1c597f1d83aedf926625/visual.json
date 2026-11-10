@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "1c597f1d83aedf926625",
   "position": {
     "x": 40,
-    "y": 110,
+    "y": 128,
     "z": 1,
-    "height": 900,
+    "height": 882,
     "width": 1840,
     "tabOrder": 1
   },
@@ -28,46 +28,7 @@
               },
               "queryRef": "Sensors.sensor_name",
               "nativeQueryRef": "sensor_name",
-              "active": true,
               "displayName": "Footpath (sensor)"
-            }
-          ]
-        },
-        "Play": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "HourOfDay"
-                    }
-                  },
-                  "Property": "clock"
-                }
-              },
-              "queryRef": "HourOfDay.clock",
-              "nativeQueryRef": "clock",
-              "displayName": "Hour"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Sensors"
-                    }
-                  },
-                  "Property": "People an hour"
-                }
-              },
-              "queryRef": "Sensors.People an hour",
-              "nativeQueryRef": "People an hour",
-              "displayName": "People an hour"
             }
           ]
         },
@@ -86,7 +47,6 @@
               },
               "queryRef": "Sensors.Width m",
               "nativeQueryRef": "Width m",
-              "active": true,
               "displayName": "Width (m)"
             }
           ]
@@ -109,37 +69,48 @@
               "displayName": "People an hour per m of width"
             }
           ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sensors"
+                    }
+                  },
+                  "Property": "People an hour"
+                }
+              },
+              "queryRef": "Sensors.People an hour",
+              "nativeQueryRef": "People an hour",
+              "displayName": "People an hour"
+            }
+          ]
+        },
+        "Play": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HourOfDay"
+                    }
+                  },
+                  "Property": "clock"
+                }
+              },
+              "queryRef": "HourOfDay.clock",
+              "nativeQueryRef": "clock",
+              "displayName": "Hour"
+            }
+          ]
         }
       }
     },
-    "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -176,7 +147,34 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   },
   "filterConfig": {
     "filters": [
@@ -231,78 +229,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
-      },
-      {
-        "name": "38acc0066d6e21d0b4ed",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sensors"
-              }
-            },
-            "Property": "sensor_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "920cda6f7715113d429c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sensors"
-              }
-            },
-            "Property": "Width m"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5468dc0977890a03e2d1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sensors"
-              }
-            },
-            "Property": "People an hour per m"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f4113df6ec5cb468ec9a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sensors"
-              }
-            },
-            "Property": "People an hour"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5ea897de133ba2094d56",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HourOfDay"
-              }
-            },
-            "Property": "clock"
-          }
-        },
-        "type": "Categorical"
+        }
       }
     ]
   }

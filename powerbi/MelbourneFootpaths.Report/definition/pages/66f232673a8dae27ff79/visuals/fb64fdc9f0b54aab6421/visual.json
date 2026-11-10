@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "fb64fdc9f0b54aab6421",
   "position": {
-    "x": 1209.3950177935942,
-    "y": 5.1245551601423482,
+    "x": 1208,
+    "y": 4,
     "z": 2,
-    "height": 90.533807829181484,
-    "width": 327.97153024911029,
+    "height": 100,
+    "width": 328,
     "tabOrder": 2
   },
   "visual": {
@@ -28,12 +28,28 @@
               },
               "queryRef": "HourOfDay.clock",
               "nativeQueryRef": "clock",
-              "active": true,
-              "displayName": "Hour"
+              "displayName": "Hour",
+              "active": true
             }
           ]
         }
       }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "objects": {
       "data": [
@@ -149,40 +165,6 @@
           }
         }
       ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3f0a8ff7e2bd39b7d091",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "HourOfDay"
-              }
-            },
-            "Property": "clock"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
+    }
   }
 }

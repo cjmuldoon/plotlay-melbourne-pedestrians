@@ -3,8 +3,8 @@ table Hours
 
 	column sensor_key
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: 73baa243-a949-1cd2-5def-ddce4e810320
 		summarizeBy: none
 		sourceColumn: sensor_key
@@ -13,8 +13,8 @@ table Hours
 
 	column hour
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: b7260297-e2a3-03a0-ade7-a134d7ba95cf
 		summarizeBy: none
 		sourceColumn: hour
@@ -54,4 +54,3 @@ table Hours
 				    Out
 
 	annotation PBI_ResultType = Table
-

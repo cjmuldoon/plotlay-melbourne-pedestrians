@@ -86,6 +86,12 @@ table Sensors
 		displayFolder: Days
 		lineageTag: ae7b25de-e52a-47b3-a35f-2124c40434a6
 
+	/// The average day of each month (for the monthly line: a daily axis scrolled in Desktop)
+	measure 'People a day, month average' = AVERAGEX ( VALUES ( Daily[date] ), [People a day] )
+		formatString: #,0
+		displayFolder: Days
+		lineageTag: 89e08089-7aa0-ed0b-e364-d66d3103750f
+
 	measure 'Complete sensors' = CALCULATE ( DISTINCTCOUNT ( Daily[sensor_key] ), Daily[hours_reported] = 24 )
 		formatString: 0
 		displayFolder: Days
@@ -114,18 +120,18 @@ table Sensors
 	column latitude
 		dataType: double
 		lineageTag: 7bac260f-e216-7b21-6d67-e86785803d59
-		dataCategory: Latitude
 		summarizeBy: none
 		sourceColumn: latitude
+		dataCategory: Latitude
 
 		annotation SummarizationSetBy = Automatic
 
 	column longitude
 		dataType: double
 		lineageTag: 3126c4b2-537a-7a4e-9d29-fefaac0b4253
-		dataCategory: Longitude
 		summarizeBy: none
 		sourceColumn: longitude
+		dataCategory: Longitude
 
 		annotation SummarizationSetBy = Automatic
 
@@ -237,4 +243,3 @@ table Sensors
 				    Short_sensor_name_short
 
 	annotation PBI_ResultType = Table
-
